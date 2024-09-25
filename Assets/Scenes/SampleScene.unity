@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &171421557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 171421558}
+  m_Layer: 0
+  m_Name: BulletSpawnLoaction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &171421558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171421557}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.66829526, y: 0.14257607, z: 1.146}
+  m_LocalScale: {x: 2.7730088, y: 2.416543, z: 2.212438}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2031702930}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &219524750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,6 +1254,11 @@ Transform:
   - {fileID: 762336544}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1466864476 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7505583342581618699, guid: 6453a4c6f373e4b13a8c817e8597f11a, type: 3}
+  m_PrefabInstance: {fileID: 8953435057730907730}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1724193995
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,7 +1375,6 @@ GameObject:
   - component: {fileID: 1938275331}
   - component: {fileID: 1938275330}
   - component: {fileID: 1938275329}
-  - component: {fileID: 1938275328}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -1347,27 +1382,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1938275328
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1938275327}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.99999964, y: 0.80816066, z: 1}
-  m_Center: {x: 0, y: -0.09591944, z: 0}
 --- !u!23 &1938275329
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1465,6 +1479,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7aa7377796e24d4faf56c9ce9c0d96b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontalInput: 0
+  projectilePrefab: {fileID: 1466864476}
+  speed: 10
+  verticalInput: 0
+  projectileSpawnPoint: {fileID: 171421558}
+  BulletSpeed: 20
 --- !u!136 &2031702927
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1554,6 +1574,7 @@ Transform:
   - {fileID: 562612315}
   - {fileID: 219936444}
   - {fileID: 386320660}
+  - {fileID: 171421558}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8953435057730907730
@@ -1564,6 +1585,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 113161041648792755, guid: 6453a4c6f373e4b13a8c817e8597f11a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 113161041648792755, guid: 6453a4c6f373e4b13a8c817e8597f11a, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6772327954155190135, guid: 6453a4c6f373e4b13a8c817e8597f11a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -1620,7 +1649,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7050263491644086759, guid: 6453a4c6f373e4b13a8c817e8597f11a, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
