@@ -18,7 +18,7 @@ public class DetectCollisions : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Walls"))
         {
             Destroy(gameObject);
             Destroy(other.gameObject);

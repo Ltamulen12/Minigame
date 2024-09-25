@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
             // Launch a projectile from the player
             GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
 
-            // Apply force to the projectile to move it forward
             Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
         }
     }
