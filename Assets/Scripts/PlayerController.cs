@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public float horizontalInput;
-    public GameObject projectilePrefab;
+    public GameObject Bullet;
     public float speed = 15.0f;
     private float turnSpeed =200.0f;
     public float verticalInput;
@@ -32,9 +32,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // Launch a projectile from the player
-            GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+            GameObject projectile = Instantiate(Bullet, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
 
             Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
+            projectileRb.velocity = projectileSpawnPoint.forward * BulletSpeed;
         }
+
     }
 }
