@@ -13,9 +13,10 @@ public class PlayerController : MonoBehaviour
     public float horizontalInput;
     public GameObject Bullet;
     public float speed = 15.0f;
-    private float turnSpeed =150.0f;
+    private float turnSpeed = 150.0f;
     public float verticalInput;
-    public Transform projectileSpawnPoint;
+    public Transform leftProjectileSpawnPoint; // Left bullet spawn point
+    public Transform rightProjectileSpawnPoint; // Right bullet spawn point
     private float forwardInput;
     public float BulletSpeed = 20.0f;
 
@@ -31,12 +32,15 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // Launch a projectile from the player
-            GameObject projectile = Instantiate(Bullet, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+            // Launch a projectile from the left spawn point
+            GameObject leftProjectile = Instantiate(Bullet, leftProjectileSpawnPoint.position, leftProjectileSpawnPoint.rotation);
+            Rigidbody leftProjectileRb = leftProjectile.GetComponent<Rigidbody>();
+            leftProjectileRb.velocity = leftProjectileSpawnPoint.forward * BulletSpeed;
 
-            Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
-            projectileRb.velocity = projectileSpawnPoint.forward * BulletSpeed;
+            // Launch a projectile from the right spawn point
+            GameObject rightProjectile = Instantiate(Bullet, rightProjectileSpawnPoint.position, rightProjectileSpawnPoint.rotation);
+            Rigidbody rightProjectileRb = rightProjectile.GetComponent<Rigidbody>();
+            rightProjectileRb.velocity = rightProjectileSpawnPoint.forward * BulletSpeed;
         }
-
     }
 }
