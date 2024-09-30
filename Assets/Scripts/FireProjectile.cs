@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class FireProjectile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    public float speed = 40.0f;
+    public float speed = 10.0f;
 
     // Update is called once per frame
     void Update()
     {
+        // Move the bullet forward
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
     }
+
+    // Called when the bullet collides with another object
+    void OnTriggerEnter(Collider other)
+{
+    if (other.gameObject.CompareTag("Wall"))
+    {
+        Destroy(gameObject);
+    }
+}
+
 }

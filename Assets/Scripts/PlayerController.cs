@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public float horizontalInput;
     public GameObject Bullet;
     public float speed = 15.0f;
-    private float turnSpeed =200.0f;
+    private float turnSpeed =150.0f;
     public float verticalInput;
     public Transform projectileSpawnPoint;
     private float forwardInput;
