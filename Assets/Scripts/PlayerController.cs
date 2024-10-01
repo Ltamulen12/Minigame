@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
        // rotates the player 
        transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime); 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             // Launch a projectile from the left spawn point
             GameObject leftProjectile = Instantiate(Bullet, leftProjectileSpawnPoint.position, leftProjectileSpawnPoint.rotation);
