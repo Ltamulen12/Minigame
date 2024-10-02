@@ -18,7 +18,12 @@ public class DetectCollisions : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Destroy(other.gameObject); // Destroy the player on collision
+            // Access the PlayerHealth script and apply damage to the player
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(); // Reduce player's health
+            }
             TakeDamage(1); // Enemy takes damage when colliding with the player
         }
         else if (other.CompareTag("Bullet"))

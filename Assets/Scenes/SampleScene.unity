@@ -605,7 +605,7 @@ Transform:
   m_GameObject: {fileID: 648565477}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.57, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -790,7 +790,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -735.5, y: -319}
+  m_AnchoredPosition: {x: -909, y: -381}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1063732626
@@ -867,6 +867,40 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &1117508620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117508614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079444451c2ee4ace8d129bdc538c837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 2
+--- !u!65 &1117508621
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117508614}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.19236493, y: 0.15560913, z: 0.48417568}
+  m_Center: {x: -0.10793054, y: -1.4114861, z: 1.508142}
 --- !u!1 &1938776583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,31 +1122,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2618656318472479949, guid: e7033792f687945d0aeed13649051465, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.0524852
+      value: 2.2464318
       objectReference: {fileID: 0}
     - target: {fileID: 2618656318472479949, guid: e7033792f687945d0aeed13649051465, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.67
+      value: -7.6496754
       objectReference: {fileID: 0}
     - target: {fileID: 2618656318472479949, guid: e7033792f687945d0aeed13649051465, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9999719
       objectReference: {fileID: 0}
     - target: {fileID: 2618656318472479949, guid: e7033792f687945d0aeed13649051465, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.007503927
       objectReference: {fileID: 0}
     - target: {fileID: 2618656318472479949, guid: e7033792f687945d0aeed13649051465, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2618656318472479949, guid: e7033792f687945d0aeed13649051465, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2618656318472479949, guid: e7033792f687945d0aeed13649051465, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 0.86
       objectReference: {fileID: 0}
     - target: {fileID: 2618656318472479949, guid: e7033792f687945d0aeed13649051465, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1141,6 +1175,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5838794640651654355, guid: e7033792f687945d0aeed13649051465, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1117508617}
+    - targetCorrespondingSourceObject: {fileID: 5838794640651654355, guid: e7033792f687945d0aeed13649051465, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1117508620}
+    - targetCorrespondingSourceObject: {fileID: 5838794640651654355, guid: e7033792f687945d0aeed13649051465, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1117508621}
   m_SourcePrefab: {fileID: 100100000, guid: e7033792f687945d0aeed13649051465, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
