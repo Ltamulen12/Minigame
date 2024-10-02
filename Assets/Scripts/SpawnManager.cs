@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; // For UI elements
+using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
-    public float spawnRangeX = 5;
-    public float spawnPosZ = 20;
-    public float spawnHeight = 0.1f;
+    public GameObject[] enemySpawnPoints; // Array to hold the spawn points
     public int initialEnemiesPerWave = 5; // Number of enemies in the first wave
     private int currentWaveEnemies; // Current wave enemies
     private int totalEnemiesSpawned; // Total enemies spawned in current wave
@@ -30,7 +28,7 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
         // Check if all enemies are destroyed
-        spawnedEnemies.RemoveAll(enemy => enemy == null); // destroys enemies after they lose all health
+        spawnedEnemies.RemoveAll(enemy => enemy == null); // Destroy enemies after they lose all health
         if (spawnedEnemies.Count == 0 && totalEnemiesSpawned == currentWaveEnemies)
         {
             // Go to next round
@@ -55,10 +53,12 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnRandomEnemy()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), spawnHeight, spawnPosZ);
-        int enemyIndex = Random.Range(0, enemyPrefabs.Length);
+        // Choose a random spawn point from the array
+        int spawnIndex = Random.Range(0, enemySpawnPoints.Length);
+        Transform spawnPoint = enemySpawnPoints[spawnIndex].transform;
 
-        GameObject enemy = Instantiate(enemyPrefabs[enemyIndex], spawnPos, enemyPrefabs[enemyIndex].transform.rotation);
+        int enemyIndex = Random.Range(0, enemyPrefabs.Length);
+        GameObject enemy = Instantiate(enemyPrefabs[enemyIndex], spawnPoint.position, spawnPoint.rotation);
         spawnedEnemies.Add(enemy);
 
         // Set enemy health based on the current round
