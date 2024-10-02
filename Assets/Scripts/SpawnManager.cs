@@ -30,12 +30,12 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
         // Check if all enemies are destroyed
-        spawnedEnemies.RemoveAll(enemy => enemy == null); // Remove null entries (destroyed enemies)
+        spawnedEnemies.RemoveAll(enemy => enemy == null); // destroys enemies after they lose all health
         if (spawnedEnemies.Count == 0 && totalEnemiesSpawned == currentWaveEnemies)
         {
-            // Move to next round
+            // Go to next round
             roundCounter++;
-            UpdateRoundCounterUI(); // Update the UI with the new round
+            UpdateRoundCounterUI(); // Update the round counter each round
             StartCoroutine(SpawnWave(roundCounter));
         }
     }
@@ -59,7 +59,14 @@ public class SpawnManager : MonoBehaviour
         int enemyIndex = Random.Range(0, enemyPrefabs.Length);
 
         GameObject enemy = Instantiate(enemyPrefabs[enemyIndex], spawnPos, enemyPrefabs[enemyIndex].transform.rotation);
-        spawnedEnemies.Add(enemy); // Add spawned enemy to the list
+        spawnedEnemies.Add(enemy);
+
+        // Set enemy health based on the current round
+        DetectCollisions enemyScript = enemy.GetComponent<DetectCollisions>();
+        if (enemyScript != null)
+        {
+            enemyScript.SetInitialHealth(roundCounter);
+        }
     }
 
     // Function to update the round counter in the UI
