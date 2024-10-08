@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     public GameObject Bullet;
     public float speed = 15.0f;
-    private float turnSpeed = 150.0f;
     public Transform leftProjectileSpawnPoint; // Left bullet spawn point
     public Transform rightProjectileSpawnPoint; // Right bullet spawn point
     private float forwardInput;

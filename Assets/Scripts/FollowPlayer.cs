@@ -35,10 +35,9 @@ public class FollowPlayer : MonoBehaviour
             // Calculate the direction towards the player, only on the X and Z axes
             Vector3 direction = new Vector3(playerTransform.position.x - transform.position.x, 0, playerTransform.position.z - transform.position.z).normalized;
 
-            // Ensure the enemy is actually far enough away to move
             float distanceToPlayer = Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), new Vector3(playerTransform.position.x, 0, playerTransform.position.z));
 
-            if (distanceToPlayer > 0.1f) // Small threshold to prevent jittery movement when very close
+            if (distanceToPlayer > 0.1f)
             {
                 // Move towards the player, maintaining the initial Y position
                 transform.position = new Vector3(transform.position.x, initialYPosition, transform.position.z) + direction * speed * Time.deltaTime;

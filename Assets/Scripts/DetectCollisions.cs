@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class DetectCollisions : MonoBehaviour
 {
-    public int enemyHealth = 3; // Base health for the enemy
-    public int bulletDamage = 1; // Damage dealt by a bullet
+    public int enemyHealth = 3; //starting health for the enemy
+    public int bulletDamage = 1; // Damage dealt each bullet - 2 bullets since its a shotgun
 
-    // Method to initialize enemy health based on the round
     public void SetInitialHealth(int round)
     {
         // Increase health by 2 for each round
@@ -24,7 +23,7 @@ public class DetectCollisions : MonoBehaviour
             {
                 playerHealth.TakeDamage(); // Reduce player's health
             }
-            TakeDamage(1); // Enemy takes damage when colliding with the player
+            TakeDamage(1); // player takes damage when colliding with the enemy
         }
         else if (other.CompareTag("Bullet"))
         {

@@ -6,18 +6,16 @@ using UnityEngine.UI;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
-    public GameObject[] enemySpawnPoints; // Array to hold the spawn points
-    public int initialEnemiesPerWave = 5; // Number of enemies in the first wave
-    private int currentWaveEnemies; // Current wave enemies
-    private int totalEnemiesSpawned; // Total enemies spawned in current wave
-    private List<GameObject> spawnedEnemies = new List<GameObject>(); // List to track spawned enemies
+    public GameObject[] enemySpawnPoints;
+    public int initialEnemiesPerWave = 5;
+    private int currentWaveEnemies;
+    private int totalEnemiesSpawned;
+    private List<GameObject> spawnedEnemies = new List<GameObject>();
     private float spawnInterval = 1.5f;
-    private int roundCounter = 1; // Round counter
+    private int roundCounter = 1;
 
-    // Reference to the Text UI element
     public Text roundCounterText;
 
-    // Start is called before the first frame update
     void Start()
     {
         UpdateRoundCounterUI();
@@ -53,7 +51,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnRandomEnemy()
     {
-        // Choose a random spawn point from the array
+        // Choose a random spawn point 
         int spawnIndex = Random.Range(0, enemySpawnPoints.Length);
         Transform spawnPoint = enemySpawnPoints[spawnIndex].transform;
 
@@ -69,7 +67,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    // Function to update the round counter in the UI
+    // Function to update the round counter
     void UpdateRoundCounterUI()
     {
         if (roundCounterText != null)
